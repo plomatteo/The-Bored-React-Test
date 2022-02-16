@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Select from 'react-select';
 import { useGlobalContext } from "../context/context";
 import RandomForm from "./randomForm";
@@ -6,11 +6,10 @@ import RandomForm from "./randomForm";
 
 const Form = () => {
 
-    const { typeOption,
+    const { 
         setTypeOption,
         setPartecipantInput,
         partecipantInput,
-        refPartecipant,
         submit,
         setSubmit,} = useGlobalContext();
 

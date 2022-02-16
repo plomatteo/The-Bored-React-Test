@@ -19,7 +19,7 @@ function AddFavourite() {
     return (
         <>
             <button className="btn btn-outline-danger" ref={target} onClick={() => {
-                favourite.some(el => el.id == dataActivity.key) ? alertTooltip() :
+                favourite.some(el => el.id === dataActivity.key) ? alertTooltip() :
                     setFavourite([...favourite, { id: dataActivity.key, title: `${dataActivity.activity}` }]);
             }}> <AiFillHeart /> Add Favourite</button>
             <Overlay target={target.current} show={show} placement="right">

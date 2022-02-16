@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Form from "./form";
 import { useGlobalContext } from "../context/context";
 import AddFavourite from "./FavouriteButton";
