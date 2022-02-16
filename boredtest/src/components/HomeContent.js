@@ -7,7 +7,7 @@ const HomeContent = () => {
             <h1>
                 The Bored React Test
             </h1>
-            <p className="px-5">
+            <p className="px-5 home-paragraph">
                 <h3>Context</h3>
 
                 I'm a bored developer with approximately an almost null social life. I've decided to build a tool to find some interesting activities to do. I know The Bored API project, so I've decided to build a React App using those APIs.
@@ -15,7 +15,7 @@ const HomeContent = () => {
 
                 <h3>The App</h3>
                 Starting from a scratch React App, I want to implement the following features.
-
+                <ul></ul>
                 <h4>Home Page</h4>
 
                 This is a static page showing the purpose of this project. It's mainly a static page, with 3 main components:
@@ -33,7 +33,8 @@ const HomeContent = () => {
                 </ul>
                 Since I'm a bored developer, I want also a fancy random button, that will reset all form filters and gives me a random activity.
                 As a result of the search form or the random button, I would like to see the activity in a fancy way, I will demonstrate here all my creativity.
-                Favorite Activities
+                <ul></ul>
+                <h4>Favorite Activities</h4>
                 If I found an awesome activity, I would like to add it to my favorite activities. So, I need:
                 <ul>
                     <li>An action to add an activity to my list</li>

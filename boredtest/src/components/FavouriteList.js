@@ -3,11 +3,11 @@ import React from "react";
 const FavouriteList = (props) => {
     return (
         <>
-            <ul className="user-list">
-                {props.data.map((favourite) => (
-                    <li key={favourite.id}>
+            <ul className="favourite-list">
+                {props.data.map((el) => (
+                    <li key={el.id}>
                         {" "}
-                        <FavouriteItem {...favourite} removeItem={props.removeItem} />
+                        <FavouriteItem {...el} removeItem={props.removeItem} />
                     </li>
                 ))}
             </ul>
@@ -15,11 +15,11 @@ const FavouriteList = (props) => {
     );
 };
 
-const FavouriteItem = ({ id, title, description, removeItem }) => {
+const FavouriteItem = ({ id, title, removeItem }) => {
     return (
         <article>
-            <div className="person-info">
-                <div className="person-action">
+            <div className="favourite-info">
+                <div className="favourite-activity">
                     <h6>{title}</h6>
                     <button className="btn" onClick={() => removeItem(id)}>
                         {"Remove"}

@@ -1,13 +1,7 @@
 :root {
   /* Colors */
   --navbar-gray: rgb(60, 60, 60);
-  --dark-blue: rgb(77, 77, 77);
-  --secondary-blue: #36a6fc;
-  --primary-blue: #ffffff;
-  --light-blue: #2096f3;
-  --text-white: rgb(72, 72, 72);
   --delete-color: #df372b;
-  --done-color: #df372b;
   --divider-color: rgba(255, 255, 255, 0.174);
   /* Global */
   --transition: all 0.3s linear;
@@ -17,7 +11,6 @@
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 4px 5px 15px rgba(0, 0, 0, 0.4);
 }
-
 *,
 *::after,
 *::before {
@@ -34,68 +27,58 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url("./assets/img/background.jpg");
 }
-
-h1, h2, h3, h4, p{
+/* GLOBAL STYLE */
+h1, h2, h3, h4, h5, h6, p, span, .linkfooter {
   color: white;
     text-shadow: 2px 2px 5px black;
 }
-
 p{
-  font-size: 20px;
+  font-size: 16px;
   text-align: start;
 }
+a {
+  text-decoration: none;
+}
 
-.nav-white-link {
+/*NAVBAR*/
+.main-nav-link {
   text-decoration: none;
   color: white;
 }
-
-.nav-white-link:hover {
+.main-nav-link:hover {
   text-decoration: none;
   color: greenyellow;
 }
-
 #favourite-counter{
   background-color: var(--delete-color);
   padding: 8px;
-  border-radius: 50%;
 }
-
 .grey {
   background-color: var(--navbar-gray);
 }
-.form-field {
+
+/*NAVBAR*/
+.home-paragraph h3 {
+  color: var(--delete-color);
+}
+.home-paragraph h4 {
+  color: greenyellow;
+}
+
+.form-field, .select-field {
   display: flex;
   justify-content: center;
 }
-
-.select-field {
-  display: flex;
-  justify-content: center;
-}
-
 .input-query {
   width: 50%;
 }
-
-.button-activity{
-  width: 4%;
-  margin: 1px;
-;}
-
-.person-info {
+.favourite-info {
   padding-left: 1rem;
   width: 100%;
 }
-
 #main-content {
-  height: 100vh;
-  background-color: rgba(60, 60, 60, 0.5);
-}
-/* GLOBAL STYLE */
-
-a {
-  text-decoration: none;
+  min-height: 100vh;
+  background-color: rgba(60, 60, 60, 0.8);
 }
 
 @media screen and (min-width: 800px) {
@@ -122,27 +105,19 @@ a {
   font-size: 1rem;
 }
 
-.user-list li {
+.favourite-list li {
   padding: 1rem;
   width: 100%;
   border-bottom: 1px solid var(--divider-color);
 }
 
-.person-img {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  box-shadow: var(--dark-shadow);
-}
-
-.person-info {
+.favourite-info {
   padding-left: 1rem;
   width: 100%;
 }
 
 @media screen and (min-width: 992px) {
-
-  .person-info {
+  .favourite-info {
     height: 40px;
     display: grid;
     display: -moz-grid;
@@ -151,7 +126,7 @@ a {
   }
 }
 
-.person-info .person-action {
+.favourite-info .favourite-activity {
   display: flex;
   display: -moz-flex;
   display: -webkit-flex;
@@ -165,23 +140,23 @@ a {
   justify-content: space-between;
 }
 
-.person-info .person-action button {
+.favourite-info .favourite-activity button {
   border: none;
   padding: 0.2rem 0.425rem 0.1rem 0.425rem;
   background-color: transparent;
   box-shadow: unset;
   text-shadow: var(--light-shadow);
-  color: var(--done-color);
+  color: var(--delete-color);
   font-size: 0.8rem;
 }
 
-.person-info .person-action button:hover {
-  background-color: var(--done-color);
+.favourite-info .favourite-activity button:hover {
+  background-color: var(--delete-color);
   color: white;
   box-shadow: var(--ligth-shadow);
 }
 
-article .person-info p {
+article .favourite-info p {
   font-size: 0.8rem;
   color: var(--text-white);
   font-style: italic;
@@ -197,27 +172,5 @@ article .person-info p {
   -webkit-justify-content: space-between;
   -ms-justify-content: space-between;
   justify-content: space-between;
-  width: 100%;
-}
-
-.btn-group .btn-reset {
-  background-color: transparent;
-  color: var(--secondary-blue);
-  border: 2px solid var(--secondary-blue);
-}
-
-.btn-group .btn-reset:hover {
-  background-color: var(--secondary-blue);
-  color: white;
-}
-
-.btn-group .btn-delete {
-  background-color: transparent;
-  color: var(--done-color);
-  border: 2px solid var(--done-color);
-}
-
-.btn-group .btn-delete:hover {
-  background-color: var(--done-color);
-  color: white;
+  width: 80%;
 }

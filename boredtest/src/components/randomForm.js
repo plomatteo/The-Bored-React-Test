@@ -25,7 +25,7 @@ const RandomForm = () => {
                 <form className="form-task" onSubmit={handleSubmitRandom}>
                     <h1>Random Activity Generator</h1>
                     <div className="form-field">
-                        <button className="btn bg-light">Random Button</button>
+                        <button className="btn btn-outline-success my-2">Random Button</button>
                     </div>
                 </form>
             </div>

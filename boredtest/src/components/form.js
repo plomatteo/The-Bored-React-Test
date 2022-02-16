@@ -12,9 +12,7 @@ const Form = () => {
         partecipantInput,
         refPartecipant,
         submit,
-        setSubmit,
-        submitRandom,
-        setSubmitRandom } = useGlobalContext();
+        setSubmit,} = useGlobalContext();
 
 
     const options = [
@@ -31,15 +29,7 @@ const Form = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(typeOption);
-        console.log(partecipantInput);
         setSubmit(!submit);
-    }
-
-    const handleSubmitRandom = e => {
-        e.preventDefault();
-        setSubmitRandom(!submitRandom);
-
     }
 
     return (
@@ -53,13 +43,13 @@ const Form = () => {
                             <Select defaultValue={options[0]} className='input-query' options={options} onChange={(e) => setTypeOption(e.value)} />
                         </div>
                         <br />
-                        <h4><label htmlFor="numberOfPartecipants">Partecipants</label></h4>
+                        <h4><label htmlFor="numberOfPartecipants">Participants</label></h4>
                         <div className="form-field">
                             <input className='input-query py-1 text-center' type="number" value={partecipantInput} placehonder="Partecipants" name="numberOfPartecipants" id="numberOfPartecipants" onChange={(e) => setPartecipantInput(e.target.value)} />
                         </div>
                         <br />
                         <div className="form-field">
-                            <button className="btn bg-light">Find activity</button>
+                            <button className="btn btn-outline-success">Find activity</button>
                         </div>
                         <br />
                     </form>

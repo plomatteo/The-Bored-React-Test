@@ -1,17 +1,21 @@
 import React from "react";
 import axios from "axios";
-import { useEffect, useState  } from "react";
+import { useEffect, useState } from "react";
 import Form from "./form";
 import { useGlobalContext } from "../context/context";
+import AddFavourite from "./FavouriteButton";
 
 const SearchContent = () => {
 
     const { typeOption,
         partecipantInput,
         submit,
-        submitRandom } = useGlobalContext();
-
-    const [dataActivity, setDataActivity] = useState([]);
+        submitRandom,
+        setDataActivity,
+        dataActivity,
+        setErrorResponse,
+        errorResponse,
+    } = useGlobalContext();
 
     useEffect(() => {
         axios({
@@ -19,7 +23,10 @@ const SearchContent = () => {
             url: `http://www.boredapi.com/api/activity?participants=${partecipantInput}&type=${typeOption}`,
         })
             .then(response => {
-                setDataActivity(response.data); console.log(response.data)
+                setDataActivity(response.data);
+            })
+            .catch(error => {
+                setErrorResponse(error);
             });
     }, [submit]);
 
@@ -29,7 +36,10 @@ const SearchContent = () => {
             url: `http://www.boredapi.com/api/activity/`,
         })
             .then(response => {
-                setDataActivity(response.data); console.log(response.data)
+                setDataActivity(response.data);
+            })
+            .catch(error => {
+                setErrorResponse(error);
             });
     }, [submitRandom])
 
@@ -37,11 +47,20 @@ const SearchContent = () => {
         return (
             <div id='main-content' className="container">
                 <Form />
-                <h1>{dataActivity.activity}</h1>
-            </div>
+                <h2>{dataActivity.activity}</h2> <AddFavourite />
+            </div >
         );
     }
     if (!dataActivity.activity) {
+        if (errorResponse) {
+            return (
+                <div id='main-content' className="container">
+                    <Form />
+                    <h1>Server non raggiungibile</h1>
+                </div>
+            )
+        }
+        else {
         return (
             <div id='main-content' className="container">
                 <Form />
@@ -49,6 +68,7 @@ const SearchContent = () => {
             </div>
         )
     }
+}
 };
 
 export default SearchContent;

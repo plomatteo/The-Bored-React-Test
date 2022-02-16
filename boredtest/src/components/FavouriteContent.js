@@ -1,9 +1,10 @@
 import React from "react";
 import RandomForm from "./randomForm";
 import { useGlobalContext } from '../context/context';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from 'axios'
 import FavouriteList from "./FavouriteList";
+import AddFavourite from "./FavouriteButton";
 
 const FavouriteContent = () => {
 
@@ -12,11 +13,14 @@ const FavouriteContent = () => {
         setDataActivity,
         dataActivity,
         favourite,
-        setFavourite } = useGlobalContext();
+        setFavourite,
+        errorResponse,
+        setErrorResponse, } = useGlobalContext();
 
 
-    const removeItem = (id) => {
-        setFavourite((oldValue) => oldValue.filter((value) => value.id !== id));
+    const removeItem = (x) => {
+        setFavourite(favourite.filter((el) => el.id !== x));
+
     };
 
     useEffect(() => {
@@ -25,7 +29,10 @@ const FavouriteContent = () => {
             url: `http://www.boredapi.com/api/activity/`,
         })
             .then(response => {
-                setDataActivity(response.data.activity);
+                setDataActivity(response.data);
+            })
+            .catch(error => {
+                setErrorResponse(error);
             });
     }, [submitRandom])
 
@@ -34,12 +41,12 @@ const FavouriteContent = () => {
             <div id='main-content' className="container">
                 <div className="row py-5">
                     <div className="col-12 col-md-6 py-3">
-                        <h1>Favorites activities</h1>
+                        <h1>Favourite Activities</h1>
                         <div className="people-list">
                             <FavouriteList data={favourite} removeItem={removeItem} />
                         </div>
                         <div className="btn-group">
-                            <button className="btn btn-delete" onClick={() => setFavourite([])}>
+                            <button className="btn btn-outline-danger" onClick={() => setFavourite([])}>
                                 {" "}
                                 Remove All
                             </button>
@@ -48,9 +55,33 @@ const FavouriteContent = () => {
                     </div>
                     <RandomForm />
                 </div>
-                <h1>{dataActivity}</h1>
+                <h2>{dataActivity.activity}</h2> <AddFavourite />
             </div>
         );
+    }
+
+    if (errorResponse) {
+        return(
+        <div id='main-content' className="container">
+                <div className="row py-5">
+                    <div className="col-12 col-md-6 py-3">
+                        <h1>Favourite activities</h1>
+                        <div className="people-list">
+                            <FavouriteList data={favourite} removeItem={removeItem} />
+                        </div>
+                        <div className="btn-group">
+                            <button className="btn btn-outline-danger" onClick={() => setFavourite([])}>
+                                {" "}
+                                Remove All
+                            </button>
+                        </div>
+
+                    </div>
+                    <RandomForm />
+                </div>
+                    <h1>Server non raggiungibile</h1>
+            </div>
+            )
     }
 };
 
