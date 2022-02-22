@@ -2,7 +2,10 @@
   /* Colors */
   --navbar-gray: rgb(60, 60, 60);
   --delete-color: #df372b;
-  --divider-color: rgba(255, 255, 255, 0.174);
+  --divider-color: rgba(255, 0, 0, 0.631);
+  --nobored-color: rgba(0, 159, 245, 0.7);
+  --yellow-color: rgb(255, 192, 7);
+  --white-color: #ffffff;
   /* Global */
   --transition: all 0.3s linear;
   --btn-transition: all 0.125s ease;
@@ -11,6 +14,7 @@
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 4px 5px 15px rgba(0, 0, 0, 0.4);
 }
+
 *,
 *::after,
 *::before {
@@ -18,6 +22,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -25,17 +30,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./assets/img/background.jpg");
+  background-image: url("https://www.artmajeur.com/medias/standard/l/e/leeartgallery/artwork/12987929_m-99-eb.jpg?v=1580887689");
 }
+
 /* GLOBAL STYLE */
 h1, h2, h3, h4, h5, h6, p, span, .linkfooter {
   color: white;
-    text-shadow: 2px 2px 5px black;
 }
-p{
+
+p {
   font-size: 16px;
   text-align: start;
 }
+
 a {
   text-decoration: none;
 }
@@ -45,55 +52,74 @@ a {
   text-decoration: none;
   color: white;
 }
+
 .main-nav-link:hover {
   text-decoration: none;
-  color: greenyellow;
+  color: var(--yellow-color);
 }
-#favourite-counter{
+
+#favourite-counter {
   background-color: var(--delete-color);
   padding: 8px;
 }
+
 .grey {
   background-color: var(--navbar-gray);
 }
+.yellow {
+  color: var(--yellow-color) ;
+}
+
+#randomButton {
+  background-image: url('https://www.artmajeur.com/medias/standard/l/e/leeartgallery/artwork/12987929_m-99-eb.jpg?v=1580887689');
+  color: rgb(255, 255, 255);
+  text-shadow: rgb(0, 0, 0) 8px 8px 10px;
+  border: 1px solid var(--yellow-color);
+}
+#randomButton:hover {
+background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaK2a5m4nl19VDjOcwOPNtmky4AjO8M3XTaQ&usqp=CAU');
+  text-shadow: black 2px 2px 5px;
+  border: 1px solid var(--yellow-color);
+}
 
 /*NAVBAR*/
-.home-paragraph h3 {
-  color: var(--delete-color);
-}
-.home-paragraph h4 {
-  color: greenyellow;
-}
 
 .form-field, .select-field {
   display: flex;
   justify-content: center;
 }
+
 .input-query {
   width: 50%;
 }
+
 .favourite-info {
   padding-left: 1rem;
   width: 100%;
 }
+
 #main-content {
   min-height: 100vh;
-  background-color: rgba(60, 60, 60, 0.8);
+  background-color: rgba(0, 0, 0, 0.74);
 }
 
 @media screen and (min-width: 800px) {
   h1 {
     font-size: 4rem;
   }
+
   h2 {
     font-size: 2.5rem;
   }
+
   h3 {
     font-size: 1.75rem;
   }
+
   h4 {
     font-size: 1rem;
   }
+
   body {
     font-size: 1rem;
   }
@@ -154,6 +180,10 @@ a {
   background-color: var(--delete-color);
   color: white;
   box-shadow: var(--ligth-shadow);
+}
+
+.home-paragraph {
+  font-size: 1.5rem;
 }
 
 article .favourite-info p {
